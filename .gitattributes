@@ -1,0 +1,6 @@
+# The generated documents are written with newline="\n" so that a rebuild
+# produces a byte-identical file on any platform. Keep the checkout matching
+# that, or a Windows clone (where git's autocrlf default rewrites everything to
+# CRLF) would report every line as changed in `git diff`, and a committed CRLF
+# shebang would not execute on Linux.
+* text=auto eol=lf

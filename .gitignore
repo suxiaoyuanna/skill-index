@@ -1,0 +1,11 @@
+# Generated from the local skill library, never committed.
+# These files describe one machine's skills and embed its absolute paths.
+docs/
+output/
+state/
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store

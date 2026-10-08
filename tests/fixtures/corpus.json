@@ -1,0 +1,165 @@
+{
+ "version": 1,
+ "note": [
+  "Synthetic skills for the test suite, stored as data rather than as real",
+  "SKILL.md files. This is deliberate: extract.py walks ~/.claude/skills",
+  "recursively, so if these were checked in as actual directories and this",
+  "repo were cloned to ~/.claude/skills/skill-index/, they would be indexed",
+  "into the user's real library and show up in their docs/SKILLS.md.",
+  "Adding 'tests' and 'docs' to SKIP_DIRS would be worse: SKIP_DIRS matches",
+  "by directory name at any depth, so a user with a legitimate skill at",
+  "~/.claude/skills/docs/SKILL.md would silently lose it.",
+  "",
+  "tests/support.py writes these into a fresh temporary directory per test.",
+  "'root' picks which fake skill root the file lands in, so cross-root",
+  "deduplication is testable. 'raw' is the whole file, which is how the",
+  "malformed-YAML and no-frontmatter cases are expressible."
+ ],
+ "skills": [
+  {
+   "root": "user",
+   "relpath": "kicad-board-layout",
+   "raw": "---\nname: kicad-board-layout\ndescription: \"Design and route KiCad PCB layouts: place footprints, check design rules, and export Gerber files.\"\nlicense: MIT\n---\n\n# KiCad board layout\n\nBody text that the indexer ignores.\n"
+  },
+  {
+   "root": "user",
+   "relpath": "security-audit",
+   "raw": "---\nname: security-audit\ndescription: \"Audit a codebase for vulnerabilities: threat modeling, OWASP top ten, secrets management, and compliance review.\"\nrisk: high\n---\n\n# Security audit\n"
+  },
+  {
+   "root": "user",
+   "relpath": "pdf-forms",
+   "raw": "---\nname: pdf-forms\ndescription: \"Fill, flatten and merge PDF forms, then extract text from scanned documents.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "playwright-e2e",
+   "raw": "---\nname: playwright-e2e\ndescription: \"Write and debug end-to-end browser tests with Playwright, including fixtures and trace-based debugging.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "seo-audit",
+   "raw": "---\nname: seo-audit\ndescription: \"Audit a site for search engine optimization: keyword gaps, backlink quality and schema markup.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "competitor-analysis",
+   "raw": "---\nname: competitor-analysis\ndescription: \"Research and compare competitors: feature matrices, market positioning and pricing landscape.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "changelog-writer",
+   "raw": "---\nname: changelog-writer\ndescription: \"根据 git 提交记录自动生成发布日志与版本变更说明，并写入 CHANGELOG.md。\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "kw-receiver",
+   "raw": "---\nname: kw-receiver\ndescription: \"陀螺仪校准与温漂补偿的辅助工具。\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "nested-meta",
+   "raw": "---\nname: nested-meta\ndescription: \"A skill whose tags and triggers live under a metadata block.\"\nmetadata:\n  domain: engineering\n  tags:\n    - alpha\n    - beta\n  triggers: \"one, two\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "foo",
+   "raw": "---\nname: foo\ndescription: \"A small helper skill.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "foo/foo",
+   "raw": "---\nname: foo\ndescription: \"A small helper skill.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "foo-py",
+   "raw": "---\nname: foo-py\ndescription: \"Shared capability implemented for Python projects.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "foo-ts",
+   "raw": "---\nname: foo-ts\ndescription: \"Shared capability implemented for TypeScript projects.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "alias-pointer",
+   "raw": "---\nname: alias-pointer\ndescription: \"Alias for pdf-forms. Kept for backwards compatibility.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "zombie-thing",
+   "raw": "---\nname: zombie-thing\ndescription: \"Use when working with various tasks or workflows.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "broken-yaml",
+   "raw": "---\nname: broken-yaml\ndescription: \"Salvaged from broken frontmatter\"\nbad: [unclosed\n---\n\n# Broken YAML\n"
+  },
+  {
+   "root": "user",
+   "relpath": "no-frontmatter",
+   "raw": "# A skill with no frontmatter at all\n\nJust prose, no --- block.\n"
+  },
+  {
+   "root": "user",
+   "relpath": "crlf-skill",
+   "raw": "---\r\nname: crlf-skill\r\ndescription: \"This file uses CRLF line endings throughout.\"\r\n---\r\n\r\n# CRLF\r\n"
+  },
+  {
+   "root": "user",
+   "relpath": "node_modules/ignored",
+   "raw": "---\nname: ignored\ndescription: \"Lives under node_modules and must not be indexed.\"\n---\n"
+  },
+  {
+   "root": "plugin",
+   "relpath": "kicad-board-layout",
+   "raw": "---\nname: kicad-board-layout\ndescription: \"A different copy of the same skill id, installed from a plugin marketplace.\"\n---\n"
+  },
+  {
+   "root": "plugin",
+   "relpath": "plugin-only-skill",
+   "raw": "---\nname: plugin-only-skill\ndescription: \"Only exists in the plugin root, so it should still be indexed once.\"\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "folded-desc",
+   "raw": "---\r\nname: folded-desc\r\ndescription: >\r\n  Audit CI workflows for attack vectors where\r\n  attacker-controlled input reaches a model\r\n  running with repository credentials.\r\nrisk: safe\r\n---\r\n"
+  },
+  {
+   "root": "user",
+   "relpath": "literal-desc",
+   "raw": "---\nname: literal-desc\ndescription: |\n  Render a chart from a CSV.\n  Keeps the line break.\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "wrapped-desc",
+   "raw": "---\nname: wrapped-desc\ndescription: Expert in building 3D experiences for the web - Three.js, React\n  Three Fiber, Spline, WebGL, and interactive 3D scenes. Covers product\n  configurators and immersive websites.\nlicense: MIT\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "escaped-quotes",
+   "raw": "---\nname: escaped-quotes\ndescription: \"Generate decks. Use for any \\\"make slides\\\", \\\"create a deck\\\", or \\\"slides from this document\\\" request.\"\nmetadata:\n  tags: [slides]\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "block-list-indent",
+   "raw": "---\nname: block-list-indent\ndescription: A skill whose block lists sit at the key's own indent.\nmetadata:\n  tags:\n  - alpha\n  - beta\n  triggers:\n    - one\n    - two\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "nextline-scalar",
+   "raw": "---\nname: nextline-scalar\ndescription:\n  \"Cover the architecture of agent memory: short-term (context window),\n  long-term (vector stores), and the cognitive architectures that\n  organize them.\"\nrisk: safe\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "null-metadata",
+   "raw": "---\nname: null-metadata\ndescription: A skill whose tags are explicitly absent.\ntags: null\nmetadata:\n  triggers: ~\n---\n"
+  },
+  {
+   "root": "user",
+   "relpath": "closed-then-dangling",
+   "raw": "---\nname: closed-then-dangling\ndescription: \"Use when you need to edit a voice profile.\"\n  Edit auto-generated content to match a profile.\n---\n"
+  }
+ ]
+}

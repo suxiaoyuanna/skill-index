@@ -1,0 +1,10 @@
+# Optional. Everything runs on the standard library alone.
+#
+# With PyYAML installed, frontmatter is parsed by a real YAML parser. Without it,
+# extract.py falls back to a small built-in parser that handles what SKILL.md
+# files actually contain: scalar values, flow lists, block lists, and nesting
+# under `metadata:`. It prints a note on stderr when it does.
+#
+# Install it if your skills use anchors, multi-line scalars, or non-string types
+# in frontmatter.
+pyyaml>=6.0
