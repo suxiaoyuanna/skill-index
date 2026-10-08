@@ -35,7 +35,7 @@ as JSON.
 ## Install
 
 ```bash
-git clone https://github.com/suyuan/skill-index ~/.claude/skills/skill-index
+git clone https://github.com/suxiaoyuanna/skill-index ~/.claude/skills/skill-index
 cd ~/.claude/skills/skill-index
 python3 scripts/refresh.py
 ```
